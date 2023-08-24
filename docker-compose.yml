@@ -4,14 +4,6 @@
 version: '3.8'
 services:
     
-    memcached:
-        container_name: memcached-api
-        image: 'memcached:alpine'
-
-    redis:
-        container_name: redis-api
-        image: 'redis:alpine'
-
     database:
         container_name: database-api
         image: mysql:8.0
@@ -31,7 +23,7 @@ services:
         volumes:
             - '.:/application'
             - './docker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini'
-        command: bash -c 'composer install && php bin/console doctrine:database:create && php-fpm8.2 -F'
+        command: bash -c 'php-fpm8.2 -D && composer install && /root/.symfony5/bin/symfony server:start'
 
     webserver:
         depends_on:

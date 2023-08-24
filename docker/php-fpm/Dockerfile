@@ -9,5 +9,7 @@ RUN apt-get update \
         php8.2-redis \ 
         php8.2-xdebug \ 
         php8.2-yaml \
+        wget \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/* \
+    && wget https://get.symfony.com/cli/installer -O - | bash
