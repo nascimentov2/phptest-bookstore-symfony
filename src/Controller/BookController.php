@@ -9,6 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/api', name: 'api_')]
 class BookController extends AbstractController
 {
+    /**
+     * List all books
+     *
+     * @return JsonResponse
+     */
     #[Route('/books', name: 'app_book')]
     public function index(): JsonResponse
     {
