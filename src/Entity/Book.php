@@ -23,11 +23,11 @@ class Book
     #[ORM\Column(type: Types::DECIMAL, precision: 11, scale: 2)]
     private ?string $price = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?string $created_at = null;
+    #[ORM\Column]
+    private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?string $updated_at = null;
+    #[ORM\Column]
+    private ?\DateTimeImmutable $updated_at = null;
 
     public function getId(): ?int
     {
@@ -70,26 +70,26 @@ class Book
         return $this;
     }
 
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(string $createdAt): static
+    public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
-        $this->created_at = $createdAt;
+        $this->created_at = $created_at;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?string
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updated_at;
     }
 
-    public function setUpdatedAt(string $updatedAt): static
+    public function setUpdatedAt(\DateTimeImmutable $updated_at): static
     {
-        $this->updated_at = $updatedAt;
+        $this->updated_at = $updated_at;
 
         return $this;
     }
